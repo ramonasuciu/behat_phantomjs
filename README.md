@@ -1,2 +1,2 @@
-behat_phantomjs
-===============
+behat_tests
+===========

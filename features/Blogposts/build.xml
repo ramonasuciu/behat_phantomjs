@@ -1,0 +1,31 @@
+<project name="Clinical Research Corner" basedir=".">
+    <tstamp>
+        <format property="current_date" pattern="yyyy_MM_dd_HHmmss" locale="en,RO"/>
+    </tstamp>
+    <target name="run">
+        <delete dir="${basedir}/report"/>
+        <mkdir dir="${basedir}/report"/>
+        <parallel>
+            <antcall target="chrome"></antcall>
+            <antcall target="firefox"></antcall>
+            <!--       <antcall target="safari"></antcall>-->
+        </parallel>
+    </target>
+    <target name="chrome">
+        <exec dir="${basedir}" executable="php" failonerror="true">
+            <arg line="../../bin/behat -f pretty,html --out ,report/chrome_${current_date}.html -p chrome ${scenario}"/>
+        </exec>
+    </target>
+    <target name="firefox">
+        <exec dir="${basedir}" executable="php" failonerror="false">
+            <arg line="../../bin/behat -f pretty,html --out ,report/firefox_${current_date}.html -p firefox ${scenario}"/>
+        </exec>
+    </target>
+    <target name="safari">
+        <exec dir="${basedir}" executable="php" failonerror="true">
+            <arg value="scenario"/>
+            <arg line="../../bin/behat -f pretty,html --out ,report/safari_${current_date}.html -p safari ${scenario}"/>
+        </exec>
+    </target>
+</project>
+

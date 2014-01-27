@@ -1,0 +1,157 @@
+@mink:sahi
+Feature: Clinical Research Corner
+  As a website user
+  I want to be able to navigate to Clinical Research Corner home page
+  Scenarios for Clinical Research Corner "About Clinical Trials" page
+
+  Background:
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+
+  Scenario: base URL
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+
+# Links
+  Scenario: Menu: "About Clinical Trials" -> "What Are Clinical Trials?" article link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//article/section/div/ul/li[1]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/what-are-clinical-trials"
+    Then I should see "Clinical Research Corner"
+    Then I should see "Clinical trials (also called clinical studies) are research studies done to see if medications and treatments are safe and helpful for people to use."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//article/section/img" should be visible
+    Then element defined by path "//aside/div/a/img" should be visible
+    Then element defined by path "//article/section/a/img" should be visible
+
+  Scenario: Menu: "About Clinical Trials" -> "Who Participates in Clinical Trials?" article link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//article/section/div/ul/li[2]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/who-participates-in-clinical-trials"
+    Then I should see "Who Participates in Clinical Trials?"
+    Then I should see "Clinical study participants are volunteers. They are people of all ages, races, and walks of life."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+
+  Scenario: Menu: "About Clinical Trials" -> "Frequently Asked Questions (FAQs)" article link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//article/section/div/ul/li[3]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/frequently-asked-questions-faqs"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see "Clinical trials are research studies that test new drugs and treatments for both safety and effectiveness in human beings."
+    Then I should see "Clinical trials are typically sponsored by government agencies (such as the National Institutes of Health) and by biotechnology, pharmaceutical, and medical device companies that develop new drugs and treatments."
+    Then I should see "Not all participants in a clinical trial will receive the same treatment."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+
+# Drop-down
+  Scenario: Menu: "About Clinical Trials" -> "What Are Clinical Trials?" drop-down link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//nav/ul/li[2]/ul/li[1]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/what-are-clinical-trials"
+    Then I should see "Clinical Research Corner"
+    Then I should see "Clinical trials (also called clinical studies) are research studies done to see if medications and treatments are safe and helpful for people to use."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//article/section/img" should be visible
+    Then element defined by path "//aside/div/a/img" should be visible
+    Then element defined by path "//article/section/a/img" should be visible
+
+  Scenario: Menu: "About Clinical Trials" -> "Who Participates in Clinical Trials?" drop-down link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//nav/ul/li[2]/ul/li[2]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/who-participates-in-clinical-trials"
+    Then I should see "Who Participates in Clinical Trials?"
+    Then I should see "Clinical study participants are volunteers. They are people of all ages, races, and walks of life."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+
+  Scenario: Menu: "About Clinical Trials" -> "Frequently Asked Questions (FAQs)" drop-down link
+    Given I reset browser session and print timestamp
+    Given I am on "http://www.healthcentral.com/clinical-trials/cf/clinical-research-corner/about-clinical-trials"
+    Then I wait "4" seconds
+    Then I should see "What Are Clinical Trials?"
+    Then I should see "Who Participates?"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[2]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/div/ul/li[3]/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+    When I follow link defined by path "//nav/ul/li[2]/ul/li[3]/a"
+    Then I wait "4" seconds
+    Then the url should match "/clinical-trials/cf/clinical-research-corner/about-clinical-trials/frequently-asked-questions-faqs"
+    Then I should see "Frequently Asked Questions (FAQs)"
+    Then I should see "Clinical trials are research studies that test new drugs and treatments for both safety and effectiveness in human beings."
+    Then I should see "Clinical trials are typically sponsored by government agencies (such as the National Institutes of Health) and by biotechnology, pharmaceutical, and medical device companies that develop new drugs and treatments."
+    Then I should see "Not all participants in a clinical trial will receive the same treatment."
+    Then I should see an "footer.wrapper img.powered_by" element
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/img" should be visible
+    Then element defined by path "//body/div[2]/div[2]/div/article/section/a/img" should be visible
+# /Drop-down

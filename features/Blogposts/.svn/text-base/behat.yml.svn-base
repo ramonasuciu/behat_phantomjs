@@ -1,0 +1,61 @@
+# behat.yml
+default:
+  extensions:
+    Behat\MinkExtension\Extension:
+#      base_url: http://c5qa.healthcentral.choicemedia.com/cecs/cf/proton-therapy-education-center
+      browser_name: firefox
+      goutte: ~
+      sahi: ~
+      zombie: ~
+      selenium2: ~
+  paths:
+    features: .
+    bootstrap: ../bootstrap
+
+chrome:
+  context:
+    class:  'FeatureContext'
+  extensions:
+    Behat\MinkExtension\Extension:
+#      base_url: http://c5qa.healthcentral.choicemedia.com/cecs/cf/proton-therapy-education-center
+#      javascript_session:  'selenium'
+      browser_name: chrome
+      goutte: ~
+      sahi: ~
+      zombie: ~
+#      selenium: ~
+  paths:
+    features: .
+    bootstrap: ../bootstrap
+
+firefox:
+  context:
+    class:  'FeatureContext'
+  extensions:
+    Behat\MinkExtension\Extension:
+#      base_url: http://c5qa.healthcentral.choicemedia.com/cecs/cf/proton-therapy-education-center
+#      javascript_session:  'selenium2'
+      browser_name: firefox
+      goutte: ~
+      sahi: ~
+      zombie: ~
+#      selenium2: ~
+  paths:
+    features: .
+    bootstrap: ../bootstrap
+
+safari:
+  context:
+    class:  'FeatureContext'
+  extensions:
+    Behat\MinkExtension\Extension:
+#      base_url: http://c5qa.healthcentral.choicemedia.com/cecs/cf/proton-therapy-education-center
+#      javascript_session:  'selenium2'
+      browser_name: safari
+      goutte: ~
+      sahi: ~
+      zombie: ~
+#      selenium2: ~
+  paths:
+    features: .
+    bootstrap: ../bootstrap

@@ -1,0 +1,13 @@
+syntax:glob
+
+dist
+build
+.DS_Store
+*.swp
+.#*
+*~
+composer.json
+composer.phar
+composer.lock
+junit_results/
+rh_report.html
