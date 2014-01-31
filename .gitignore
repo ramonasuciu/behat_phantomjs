@@ -9,6 +9,7 @@ build
 composer.json
 composer.phar
 composer.lock
+.svn
 junit_results/
 failed_results/
 rh_report.html
