@@ -207,6 +207,31 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
         }
     }
 
+
+    /**
+     * Check if element is visible
+     *
+     * @Then /^element "([^"]*)" should be visible on page$/
+     */
+    public function elementShouldBeVisibleOnPage($path)
+    {
+        if (preg_match('/\s/', $path)) {
+            $element = $this->getSession()
+                ->getPage()
+                ->find("css", $path);
+        } else {
+            $element = $this->getSession()
+                ->getPage()
+                ->find("xpath", $path);
+        }
+        $class = $element->getAttribute("lass");
+        echo $class . "\n";
+        if ($class <> "Page-supercollection-header" && $class <> "") {
+            throw new \Behat\Gherkin\Exception\Exception('Element is not visible');
+    		}
+    }
+    
+    
     /**
      * @Then /^I print value of field "([^"]*)"$/
      */
@@ -270,7 +295,7 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
             throw new \InvalidArgumentException(sprintf('Could not evaluate selector: "%s"', $locator));
         }
 
-        // ok, let's hover it
+        // ok, let's click it
         $element->click();
     }
 
@@ -494,6 +519,45 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
  
         $element->click();
  
+    }
+
+	/**
+ 	* @Then /^"([^"]*)" should not be visible$/
+ 	*/
+	public function shouldNotBeVisible($selector)
+	{
+		$el = $this->getSession()->getPage()->find('css', $selector);
+		$class = '';
+		if(!empty($el)){
+			$style = preg_replace('/\s/', '', $el->getAttribute('style'));
+		} else {
+			throw new Exception("Element ({$selector}) not found");
+		}
+
+		assertTrue(false !== strstr($style, 'display:none'));
+	}
+
+
+	/**
+	* Checks, that form element with specified label and type is visible on page.
+	*
+	* @Then /^(?:|I )should see an? "(?P<label>[^"]*)" (?P<type>[^"]*) form element$/
+	*/
+	public function assertTypedFormElementOnPage($label, $type)
+	{
+		$container = $this->getSession()->getPage();
+		$pattern = '/(^| )form-type-' . preg_quote($type). '($| )/';
+		$label_nodes = $container->findAll('css', '.Page-supercollection-header');
+		foreach ($label_nodes as $label_node) {
+		// Note: getText() will return an empty string when using Selenium2D. This
+		// is ok since it will cause a failed step.
+			if ($label_node->getText() === $label
+        	&& preg_match($pattern, $label_node->getParent()->getAttribute('class'))
+        	&& $label_node->isVisible()) {
+        		return;
+        		}
+        	}
+    	throw new \Behat\Mink\Exception\ElementNotFoundException($this->getSession(), $type . ' form item', 'label', $label);
     }
 
 }

@@ -10,4 +10,5 @@ composer.json
 composer.phar
 composer.lock
 junit_results/
+failed_results/
 rh_report.html

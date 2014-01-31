@@ -1,7 +1,8 @@
 phantomjs:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: 'http://qa.healthcentral.choicemedia.com'
+      base_url: 'http://behat.org'
+      default_session: sahi
       javascript_session: sahi
       browser_name: phantomjs
       goutte: ~
@@ -10,6 +11,6 @@ phantomjs:
     features: .
     bootstrap: bootstrap
   formatter:
-    name: pretty, junit, failed
+    name: pretty, junit, html
     parameters:
-      output_path: null, junit_results, failed_results
+      output_path: null, junit_results, html_report.html
